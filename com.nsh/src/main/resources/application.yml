@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spider_db
+    username: root
+    password: admin
+  mail:
+    #发送方邮件地址
+    host: smtp.163.com
+    username: 15209290971@163.com
+    #授权码
+    password: ZTVPLENFUZQIQFPH
+    default-encoding: utf-8
+    #前端页面
+  thymeleaf:
+      prefix: classpath:template/
+      suffix: .html
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.nsh.pojo
+
+

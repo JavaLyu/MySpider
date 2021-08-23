@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nsh.dao.StudentMapper">
+    <insert id="insertStudent" parameterType="Student">
+        insert into user (name,class,create_time,email,graduate_time,school)
+        values
+        (#{name},#{XZclass},#{createTime},#{email},#{year},#{school})
+    </insert>
+
+    <select id="selectAllGradeNow" parameterType="int" resultType="String">
+        select email from user where graduate_time = #{year}
+    </select>
+</mapper>

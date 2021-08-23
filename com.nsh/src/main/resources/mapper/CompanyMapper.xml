@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nsh.dao.CompanyMapper">
+    <insert id="insertCompany" parameterType="companyXZ" >
+       insert into sxs
+       (name,job_url,work_city,price,job_name,company_info,create_time,state,md5_key)
+       values (#{name},#{jobUrl},#{workCity},#{price},#{jobName},#{companyInfo},#{createTime},#{state},#{md5Key})
+
+    </insert>
+    <select id="getallMd5" resultType="string">
+        select md5_key from sxs
+    </select>
+    <resultMap id="CompanyResult" type="CompanyXZ">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="job_url" property="jobUrl"/>
+        <result column="work_city" property="workCity"/>
+        <result column="price" property="price"/>
+        <result column="job_name" property="jobName"/>
+        <result column="company_info" property="companyInfo"/>
+        <result column="create_time" property="createTime"/>
+        <result column="state" property="state"/>
+        <result column="md5_key" property="md5Key"/>
+    </resultMap>
+
+    <select id="selectAllNotSend" resultMap="CompanyResult">
+        select * from sxs where state = 0
+    </select>
+    
+    <update id="batchUpdateStatr">
+        update sxs set state = 1 where id in
+        <foreach collection="list" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </update>
+
+
+</mapper>

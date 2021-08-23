@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body style="color: #666; font-size: 14px; font-family: 'Open Sans',Helvetica,Arial,sans-serif;">
+<div class="box-content" style="width: 80%; margin: 20px auto; max-width: 800px; min-width: 600px;">
+    <div class="info-top" style="padding: 15px 25px;
+                                 border-top-left-radius: 10px;
+                                 border-top-right-radius: 10px;">
+        <div style="color:#010e07"><strong>Excel文件操作</strong></div>
+    </div>
+    <!--批量添加模态框-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="uploadExcel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!--th 就是用到thymeleaf模板-->
+                <form class="form-horizontal" role="form" th:action="@{uploadExcel}" enctype="multipart/form-data" method="post">
+                    <div class="modal-body">
+                        请选择文件:<input type="file" name="excelFile" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-success">添加</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
